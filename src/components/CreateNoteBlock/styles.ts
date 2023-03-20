@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+const Container = styled.form`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,5 +11,18 @@ const Container = styled.div`
     border: 1px solid #a9a9a9;
     border-radius: 10px;
 `;
+const StyledInput = styled.input`
+    width: 100%;
+    height: 40px;
 
-export { Container };
+    font-size: 32px;
+
+    &:focus-visible {
+        outline: none;
+    }
+`;
+const ErrorMessage = styled.p`
+    color: #f01f1f;
+`;
+
+export { Container, StyledInput, ErrorMessage };

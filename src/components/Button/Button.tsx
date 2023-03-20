@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes } from 'react';
 interface ButtonProps {
     type: ButtonHTMLAttributes<HTMLButtonElement>['type'];
     label: string;
-    onClick: () => void;
+    onClick?: () => void;
     isPrimary?: boolean;
     className?: string;
 }
