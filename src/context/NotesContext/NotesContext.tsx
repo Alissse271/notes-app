@@ -1,11 +1,14 @@
 import { createContext, useContext, useState } from 'react';
-import { NotesContext, NotesContextProviderProps } from './types';
+import { INotesContext, NotesContextProviderProps } from './types';
 
-const NotesContext = createContext<NotesContext>({} as NotesContext);
+const NotesContext = createContext<INotesContext>({} as INotesContext);
 
 const useNotesContextValue = () => {
-    const [notesContext, setNotesContext] = useState<NotesContext>(() => ({
-        notes: [],
+    const [notesContext, setNotesContext] = useState<INotesContext>(() => ({
+        notes: [
+            { title: '111', id: '1' },
+            { title: '222', id: '2' },
+        ],
         setNewNote: (newNote) => {
             setNotesContext((ctx) => ({
                 ...ctx,
@@ -22,7 +25,7 @@ const useNotesContextValue = () => {
     return notesContext;
 };
 
-export const useNotesContext = () => useContext<NotesContext>(NotesContext);
+export const useNotesContext = () => useContext<INotesContext>(NotesContext);
 
 export const NotesContextProvider = ({
     children,

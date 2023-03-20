@@ -8,7 +8,7 @@ export interface Note {
     title: string;
     id: string;
 }
-export interface NotesContext {
+export interface INotesContext {
     notes: Note[];
     setNewNote: (newNote: Note) => void;
     deleteNote: (id: string) => void;

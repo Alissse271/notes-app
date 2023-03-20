@@ -1,9 +1,5 @@
-import { NotesItem } from 'components';
+import { MainTemplate } from 'templates';
 
 export const App = () => {
-    return (
-        <div>
-            <NotesItem />
-        </div>
-    );
+    return <MainTemplate />;
 };

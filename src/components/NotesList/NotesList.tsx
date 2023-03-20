@@ -1,5 +1,17 @@
+import { NotesItem } from 'components/NotesItem/NotesItem';
+import { Note } from 'context';
 import { StyledNotesList } from './styles';
 
-export const NotesList = () => {
-    return <StyledNotesList>NotesList</StyledNotesList>;
+interface Props {
+    notes: Note[];
+}
+
+export const NotesList = ({ notes }: Props) => {
+    return (
+        <StyledNotesList>
+            {notes.map((note) => {
+                return <NotesItem note={note} key={note.id} />;
+            })}
+        </StyledNotesList>
+    );
 };
