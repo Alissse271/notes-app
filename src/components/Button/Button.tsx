@@ -6,11 +6,23 @@ interface ButtonProps {
     label: string;
     onClick: () => void;
     isPrimary?: boolean;
+    className?: string;
 }
 
-export const Button = ({ type, label, onClick, isPrimary }: ButtonProps) => {
+export const Button = ({
+    type,
+    label,
+    onClick,
+    isPrimary,
+    className,
+}: ButtonProps) => {
     return (
-        <StyledButton type={type} onClick={onClick} primary={isPrimary}>
+        <StyledButton
+            type={type}
+            onClick={onClick}
+            primary={isPrimary}
+            className={className}
+        >
             {label}
         </StyledButton>
     );

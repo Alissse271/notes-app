@@ -1,4 +1,4 @@
-import { StyledMainTemplate } from './styles';
+import { StyledMainTemplate, StyledButton } from './styles';
 import { CreateNoteBlock, NotesList } from 'components';
 import { useNotesContext } from 'context';
 
@@ -8,6 +8,11 @@ export const MainTemplate = () => {
         <StyledMainTemplate>
             <CreateNoteBlock />
             <NotesList notes={notes} />
+            <StyledButton
+                type={'button'}
+                label="Delete all notes"
+                onClick={() => console.log('sd')}
+            />
         </StyledMainTemplate>
     );
 };
