@@ -21,6 +21,12 @@ const useNotesContextValue = () => {
                 notes: ctx.notes.filter((note) => note.id !== id),
             }));
         },
+        deleteAllNotes: () => {
+            setNotesContext((ctx) => ({
+                ...ctx,
+                notes: [],
+            }));
+        },
         saveEditedNote: (id, title) => {
             setNotesContext((ctx) => ({
                 ...ctx,

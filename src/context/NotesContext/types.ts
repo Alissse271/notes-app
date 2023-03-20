@@ -12,5 +12,6 @@ export interface INotesContext {
     notes: Note[];
     setNewNote: (newNote: Note) => void;
     deleteNote: (id: string) => void;
+    deleteAllNotes: () => void;
     saveEditedNote: (id: string, title: string) => void;
 }

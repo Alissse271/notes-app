@@ -3,7 +3,10 @@ import { CreateNoteBlock, NotesList } from 'components';
 import { useNotesContext } from 'context';
 
 export const MainTemplate = () => {
-    const { notes } = useNotesContext();
+    const { notes, deleteAllNotes } = useNotesContext();
+    const handleDeleteAllNotes = () => {
+        deleteAllNotes();
+    };
     return (
         <StyledMainTemplate>
             <CreateNoteBlock />
@@ -11,7 +14,7 @@ export const MainTemplate = () => {
             <StyledButton
                 type={'button'}
                 label="Delete all notes"
-                onClick={() => console.log('sd')}
+                onClick={handleDeleteAllNotes}
             />
         </StyledMainTemplate>
     );
