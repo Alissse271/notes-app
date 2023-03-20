@@ -19,6 +19,7 @@ export const resetCSS = css`
         list-style: none;
     }
     button {
+        border: none;
         cursor: pointer;
     }
 `;

@@ -1,3 +1,9 @@
+import { NotesItem } from 'components';
+
 export const App = () => {
-    return <div>App</div>;
+    return (
+        <div>
+            <NotesItem />
+        </div>
+    );
 };

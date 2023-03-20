@@ -7,7 +7,6 @@ const StyledButton = styled.button<{ primary?: boolean }>`
     padding: 15px 147px;
     background-color: ${({ primary }) => (primary ? `#23c9ff` : '#f01f1f')};
     border-radius: 10px;
-    cursor: pointer;
 `;
 
 export { StyledButton };
