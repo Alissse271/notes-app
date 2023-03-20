@@ -21,6 +21,17 @@ const useNotesContextValue = () => {
                 notes: ctx.notes.filter((note) => note.id !== id),
             }));
         },
+        saveEditedNote: (id, title) => {
+            setNotesContext((ctx) => ({
+                ...ctx,
+                notes: ctx.notes.map((note) => {
+                    if (note.id === id) {
+                        note.title = title;
+                    }
+                    return note;
+                }),
+            }));
+        },
     }));
     return notesContext;
 };

@@ -1,5 +1,5 @@
 import { deleteIcon, editIcon, saveIcon } from 'assets';
-import { IconButton } from 'components';
+import { IconButton, Input } from 'components';
 import { Note, useNotesContext } from 'context';
 import { useToggle } from 'hooks';
 import { useState } from 'react';
@@ -11,13 +11,18 @@ interface Props {
 
 export const NotesItem = ({ note }: Props) => {
     const { title, id } = note;
+
     const [value, setValue] = useState('');
     const [isEditMode, toggleEditMode] = useToggle(false);
 
-    const { deleteNote } = useNotesContext();
+    const { deleteNote, saveEditedNote } = useNotesContext();
 
-    const handleEditNote = () => toggleEditMode();
+    const handleEditNote = () => {
+        setValue(title);
+        toggleEditMode();
+    };
     const handleSaveNote = () => {
+        saveEditedNote(id, value);
         toggleEditMode();
     };
     const handleDeleteNote = () => {
@@ -28,7 +33,11 @@ export const NotesItem = ({ note }: Props) => {
         <StyledNotesItem>
             {isEditMode ? (
                 <>
-                    <NoteText>{title}</NoteText>
+                    <Input
+                        type="text"
+                        onChange={(e) => setValue(e.target.value)}
+                        value={value}
+                    />
                     <IconButton
                         type="button"
                         onClick={handleSaveNote}
