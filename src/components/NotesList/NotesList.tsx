@@ -1,4 +1,4 @@
-import { NotesItem } from 'components/NotesItem/NotesItem';
+import { NotesItem } from 'components';
 import { Note } from 'context';
 import { StyledNotesList } from './styles';
 

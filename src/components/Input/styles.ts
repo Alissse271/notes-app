@@ -11,6 +11,8 @@ const StyledInput = styled.input`
     }
 
     @media (max-width: 475px) {
+        height: auto;
+
         font-size: 24px;
     }
 `;

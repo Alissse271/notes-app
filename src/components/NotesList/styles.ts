@@ -6,7 +6,7 @@ const StyledNotesList = styled.ul`
     row-gap: 10px;
 
     min-height: 30vh;
-    max-height: 70vh;
+    max-height: 50vh;
 
     margin: 40px 0;
 
@@ -17,6 +17,10 @@ const StyledNotesList = styled.ul`
 
     &::-webkit-scrollbar {
         width: 0;
+    }
+
+    @media (max-width: 425px) {
+        max-height: 35vh;
     }
 `;
 
