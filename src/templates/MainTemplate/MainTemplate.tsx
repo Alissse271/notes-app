@@ -52,7 +52,7 @@ export const MainTemplate = () => {
             )}
 
             <StyledButton
-                type={'button'}
+                type="button"
                 label="Delete all notes"
                 onClick={handleDeleteAllNotes}
             />
