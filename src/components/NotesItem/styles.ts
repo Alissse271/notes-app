@@ -10,10 +10,19 @@ const StyledNotesItem = styled.li`
 
     border: 1px solid #a9a9a9;
     border-radius: 10px;
+
+    @media (max-width: 475px) {
+        column-gap: 10px;
+        padding: 10px;
+    }
 `;
 
 const NoteText = styled.span`
     font-size: 32px;
+
+    @media (max-width: 475px) {
+        font-size: 24px;
+    }
 `;
 const ButtonsContainer = styled.div`
     display: flex;

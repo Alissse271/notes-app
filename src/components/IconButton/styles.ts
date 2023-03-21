@@ -6,6 +6,11 @@ const StyledButton = styled.button<{ iconSrc: string }>`
 
     background-color: transparent;
     background: center center no-repeat url(${({ iconSrc }) => `${iconSrc}`});
+
+    @media (max-width: 475px) {
+        width: 30px;
+        height: 30px;
+    }
 `;
 
 export { StyledButton };

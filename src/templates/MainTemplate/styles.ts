@@ -6,10 +6,27 @@ const StyledMainTemplate = styled.div`
     width: 100%;
 
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px 10px;
 `;
 const StyledButton = styled(Button)`
     width: 100%;
 `;
+const EmptyList = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-export { StyledMainTemplate, StyledButton };
+    min-height: 30vh;
+    max-height: 70vh;
+
+    margin: 40px 0;
+`;
+const Text = styled.p`
+    font-size: 32px;
+
+    @media (max-width: 425px) {
+        font-size: 24px;
+    }
+`;
+
+export { StyledMainTemplate, StyledButton, EmptyList, Text };

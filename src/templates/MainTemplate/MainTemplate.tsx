@@ -1,4 +1,4 @@
-import { StyledMainTemplate, StyledButton } from './styles';
+import { StyledMainTemplate, StyledButton, EmptyList, Text } from './styles';
 import { CreateNoteBlock, NotesList } from 'components';
 import { useNotesContext } from 'context';
 
@@ -10,7 +10,13 @@ export const MainTemplate = () => {
     return (
         <StyledMainTemplate>
             <CreateNoteBlock />
-            <NotesList notes={notes} />
+            {notes.length ? (
+                <NotesList notes={notes} />
+            ) : (
+                <EmptyList>
+                    <Text>Create some notes!</Text>
+                </EmptyList>
+            )}
             <StyledButton
                 type={'button'}
                 label="Delete all notes"

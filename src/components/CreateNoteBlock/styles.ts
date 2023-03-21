@@ -10,6 +10,11 @@ const Container = styled.form`
 
     border: 1px solid #a9a9a9;
     border-radius: 10px;
+
+    @media (max-width: 475px) {
+        column-gap: 10px;
+        padding: 10px;
+    }
 `;
 const StyledInput = styled.input`
     width: 100%;
@@ -19,6 +24,10 @@ const StyledInput = styled.input`
 
     &:focus-visible {
         outline: none;
+    }
+
+    @media (max-width: 475px) {
+        font-size: 20px;
     }
 `;
 const ErrorMessage = styled.p`

@@ -9,6 +9,10 @@ const StyledInput = styled.input`
     &:focus-visible {
         outline: none;
     }
+
+    @media (max-width: 475px) {
+        font-size: 24px;
+    }
 `;
 
 export { StyledInput };
