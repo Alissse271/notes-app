@@ -1,14 +1,11 @@
 import { createContext, useContext, useState } from 'react';
-import { INotesContext, NotesContextProviderProps } from './types';
+import { INotesContext, Note, NotesContextProviderProps } from './types';
 
 const NotesContext = createContext<INotesContext>({} as INotesContext);
-
+const notes: Note[] = JSON.parse(localStorage.getItem('notes') || '[]');
 const useNotesContextValue = () => {
     const [notesContext, setNotesContext] = useState<INotesContext>(() => ({
-        notes: [
-            { title: '111', id: '1' },
-            { title: '222', id: '2' },
-        ],
+        notes: notes,
         setNewNote: (newNote) => {
             setNotesContext((ctx) => ({
                 ...ctx,

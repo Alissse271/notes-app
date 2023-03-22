@@ -1,6 +1,6 @@
 import { deleteIcon, editIcon, saveIcon } from 'assets';
 import { IconButton } from 'components';
-import { Note, useNotesContext } from 'context';
+import { Note, useNotesContext, useTagsContext } from 'context';
 import { useToggle } from 'hooks';
 import { useState } from 'react';
 import { highlightHashtags } from 'utils';
@@ -25,13 +25,15 @@ export const NotesItem = ({ note }: Props) => {
     const [hashtags, setHashtags] = useState(value);
     const [isEditMode, toggleEditMode] = useToggle(false);
 
-    const { deleteNote, saveEditedNote } = useNotesContext();
+    const { deleteNote, saveEditedNote, notes } = useNotesContext();
+    const { setNewTag } = useTagsContext();
 
     const handleEditNote = () => {
         setValue(title);
         setHashtags(highlightHashtags(value));
         toggleEditMode();
     };
+
     const handleFindHashtags = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
         setValue(inputValue);
@@ -39,11 +41,25 @@ export const NotesItem = ({ note }: Props) => {
     };
 
     const handleSaveNote = () => {
+        const tagsList = value.split(' ').filter((tag) => tag.startsWith('#'));
+
+        if (tagsList.length > 0) {
+            const newTags = tagsList.map((tag) => {
+                return { title: tag.trim() };
+            });
+
+            newTags.forEach((tag) => {
+                setNewTag(tag);
+            });
+        }
+
         saveEditedNote(id, value);
         toggleEditMode();
     };
+
     const handleDeleteNote = () => {
         deleteNote(id);
+        localStorage.setItem('notes', JSON.stringify(notes));
     };
 
     return (

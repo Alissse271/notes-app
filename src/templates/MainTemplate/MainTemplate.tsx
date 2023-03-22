@@ -14,11 +14,13 @@ import { useEffect, useState } from 'react';
 export const MainTemplate = () => {
     const { notes, deleteAllNotes } = useNotesContext();
     const { tags } = useTagsContext();
+
     const search = useInput();
     const [filteredList, setFilteredList] = useState<Note[]>(notes);
     const debauncedValue = useDebounce(search.value, 500);
     const handleDeleteAllNotes = () => {
         deleteAllNotes();
+        localStorage.setItem('notes', JSON.stringify([]));
     };
 
     useEffect(() => {
@@ -28,14 +30,17 @@ export const MainTemplate = () => {
             )
         );
     }, [notes, debauncedValue]);
+
     return (
         <StyledMainTemplate>
             <CreateNoteBlock />
             <StyledSearch
                 type="search"
+                pattern="/#\w+/g"
                 placeholder="Search by tag"
                 {...search}
             />
+
             {filteredList.length ? (
                 <NotesList notes={filteredList} />
             ) : (

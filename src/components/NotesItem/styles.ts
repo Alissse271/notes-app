@@ -11,8 +11,14 @@ const Container = styled.div`
 
     font-size: 32px;
 
+    overflow: hidden;
+
     @media (max-width: 475px) {
-        font-size: 24px;
+        height: 30px;
+
+        padding-top: 4px;
+
+        font-size: 18px;
     }
 `;
 const InputContainer = styled.div`
@@ -29,6 +35,10 @@ const InputContainer = styled.div`
     width: inherit;
 
     z-index: 3;
+
+    @media (max-width: 475px) {
+        height: 30px;
+    }
 `;
 const StyledNotesItem = styled.li`
     display: flex;
@@ -50,8 +60,10 @@ const StyledNotesItem = styled.li`
 const NoteText = styled.span`
     font-size: 32px;
 
+    overflow: hidden;
+
     @media (max-width: 475px) {
-        font-size: 24px;
+        font-size: 18px;
     }
 `;
 const ButtonsContainer = styled.div`
@@ -62,14 +74,21 @@ const ButtonsContainer = styled.div`
 const StyledInput = styled(Input)`
     background-color: transparent;
     color: transparent;
+    /* color: red; */
     caret-color: #000;
 `;
 const StyledText = styled.span`
-    margin-top: 5px;
+    display: block;
+    width: calc(100% - 60px);
     font-size: 32px;
 
+    white-space: nowrap;
+    overflow: hidden;
+
     @media (max-width: 475px) {
-        font-size: 24px;
+        width: calc(100% - 47px);
+
+        font-size: 18px;
     }
 `;
 
