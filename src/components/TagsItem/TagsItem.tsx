@@ -9,6 +9,7 @@ interface Props {
 export const TagsItem = ({ tag }: Props) => {
     const { title } = tag;
     const { deleteTag, tags } = useTagsContext();
+
     const handleDeleteTag = () => {
         deleteTag(title);
         localStorage.setItem('tags', JSON.stringify(tags));

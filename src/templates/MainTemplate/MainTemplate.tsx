@@ -15,9 +15,11 @@ export const MainTemplate = () => {
     const { notes, deleteAllNotes } = useNotesContext();
     const { tags } = useTagsContext();
 
-    const search = useInput();
     const [filteredList, setFilteredList] = useState<Note[]>(notes);
+
+    const search = useInput();
     const debauncedValue = useDebounce(search.value, 500);
+
     const handleDeleteAllNotes = () => {
         deleteAllNotes();
         localStorage.setItem('notes', JSON.stringify([]));

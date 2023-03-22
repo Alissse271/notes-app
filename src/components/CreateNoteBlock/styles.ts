@@ -29,17 +29,9 @@ const StyledInput = styled.input`
     @media (max-width: 475px) {
         font-size: 20px;
     }
-
-    &.highlighted-hashtag {
-        color: red;
-    }
 `;
 const ErrorMessage = styled.p`
     color: #f01f1f;
 `;
-const Hashtag = styled.p`
-    color: #f01f1f;
-`;
 
-export { Container, StyledInput, ErrorMessage, Hashtag };
-/* color: ${({ valid }) => (valid ? 'blue' : 'black')}; */
+export { Container, StyledInput, ErrorMessage };

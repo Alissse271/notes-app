@@ -74,7 +74,6 @@ const ButtonsContainer = styled.div`
 const StyledInput = styled(Input)`
     background-color: transparent;
     color: transparent;
-    /* color: red; */
     caret-color: #000;
 `;
 const StyledText = styled.span`

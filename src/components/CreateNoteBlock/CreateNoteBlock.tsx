@@ -7,8 +7,6 @@ import { useEffect } from 'react';
 
 interface FormValues {
     title: string;
-    id: string;
-    hashtag: string;
 }
 
 export const CreateNoteBlock = () => {

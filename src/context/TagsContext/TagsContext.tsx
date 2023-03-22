@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import { ITagsContext, Tag, TagsContextProviderProps } from './types';
 
 const TagsContext = createContext<ITagsContext>({} as ITagsContext);
+
 const tags: Tag[] = JSON.parse(localStorage.getItem('tags') || '[]');
 
 const useTagsContextValue = () => {
