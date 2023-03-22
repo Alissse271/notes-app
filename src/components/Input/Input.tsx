@@ -6,15 +6,23 @@ interface InputProps {
     value: string;
     placeholder?: string;
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    className?: string;
 }
 
-export const Input = ({ type, value, onChange, placeholder }: InputProps) => {
+export const Input = ({
+    type,
+    value,
+    onChange,
+    placeholder,
+    className,
+}: InputProps) => {
     return (
         <StyledInput
             placeholder={placeholder}
             type={type}
             value={value}
             onChange={onChange}
+            className={className}
         />
     );
 };

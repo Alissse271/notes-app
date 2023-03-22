@@ -1,9 +1,18 @@
 import { deleteIcon, editIcon, saveIcon } from 'assets';
-import { IconButton, Input } from 'components';
+import { IconButton } from 'components';
 import { Note, useNotesContext } from 'context';
 import { useToggle } from 'hooks';
 import { useState } from 'react';
-import { ButtonsContainer, NoteText, StyledNotesItem } from './styles';
+import { highlightHashtags } from 'utils';
+import {
+    Container,
+    InputContainer,
+    ButtonsContainer,
+    NoteText,
+    StyledNotesItem,
+    StyledInput,
+    StyledText,
+} from './styles';
 
 interface Props {
     note: Note;
@@ -12,15 +21,23 @@ interface Props {
 export const NotesItem = ({ note }: Props) => {
     const { title, id } = note;
 
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(title);
+    const [hashtags, setHashtags] = useState(value);
     const [isEditMode, toggleEditMode] = useToggle(false);
 
     const { deleteNote, saveEditedNote } = useNotesContext();
 
     const handleEditNote = () => {
         setValue(title);
+        setHashtags(highlightHashtags(value));
         toggleEditMode();
     };
+    const handleFindHashtags = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const inputValue = e.target.value;
+        setValue(inputValue);
+        setHashtags(highlightHashtags(inputValue));
+    };
+
     const handleSaveNote = () => {
         saveEditedNote(id, value);
         toggleEditMode();
@@ -32,18 +49,23 @@ export const NotesItem = ({ note }: Props) => {
     return (
         <StyledNotesItem>
             {isEditMode ? (
-                <>
-                    <Input
-                        type="text"
-                        onChange={(e) => setValue(e.target.value)}
-                        value={value}
-                    />
-                    <IconButton
-                        type="button"
-                        onClick={handleSaveNote}
-                        iconSrc={saveIcon}
-                    />
-                </>
+                <Container>
+                    <StyledText
+                        dangerouslySetInnerHTML={{ __html: hashtags }}
+                    ></StyledText>
+                    <InputContainer>
+                        <StyledInput
+                            type="text"
+                            onChange={handleFindHashtags}
+                            value={value}
+                        />
+                        <IconButton
+                            type="button"
+                            onClick={handleSaveNote}
+                            iconSrc={saveIcon}
+                        />
+                    </InputContainer>
+                </Container>
             ) : (
                 <>
                     <NoteText>{title}</NoteText>
