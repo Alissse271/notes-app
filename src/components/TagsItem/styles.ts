@@ -21,8 +21,8 @@ const TagText = styled.span`
     }
 `;
 const StyledButton = styled(IconButton)`
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 `;
 
 export { StyledTagItem, TagText, StyledButton };
