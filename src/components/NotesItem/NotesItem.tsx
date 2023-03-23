@@ -34,7 +34,7 @@ export const NotesItem = ({ note }: Props) => {
         toggleEditMode();
     };
 
-    const handleFindHashtags = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFindHashtags = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const inputValue = e.target.value;
         setValue(inputValue);
         setHashtags(highlightHashtags(inputValue));
@@ -71,7 +71,7 @@ export const NotesItem = ({ note }: Props) => {
                     ></StyledText>
                     <InputContainer>
                         <StyledInput
-                            type="text"
+                            minRows={1}
                             onChange={handleFindHashtags}
                             value={value}
                         />
