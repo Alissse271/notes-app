@@ -18,7 +18,7 @@ export const MainTemplate = () => {
     const [filteredList, setFilteredList] = useState<Note[]>(notes);
 
     const search = useInput();
-    const debauncedValue = useDebounce(search.value, 500);
+    const debauncedValue = useDebounce(search.value, 1000);
 
     const handleDeleteAllNotes = () => {
         deleteAllNotes();
@@ -31,7 +31,7 @@ export const MainTemplate = () => {
                 notes.title.toLowerCase().includes(search.value.toLowerCase())
             )
         );
-    }, [notes, debauncedValue]);
+    }, [notes, debauncedValue, search.value]);
 
     return (
         <StyledMainTemplate>
