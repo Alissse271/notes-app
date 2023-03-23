@@ -38,11 +38,9 @@ export const MainTemplate = () => {
             <CreateNoteBlock />
             <StyledSearch
                 type="search"
-                pattern="/#\w+/g"
-                placeholder="Search by tag"
+                placeholder="Enter your #tag"
                 {...search}
             />
-
             {filteredList.length ? (
                 <NotesList notes={filteredList} />
             ) : (
