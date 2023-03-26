@@ -15,7 +15,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">DEMO</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -62,14 +61,6 @@ This project was created to add and edit notes. During editing notes, you can ad
     ```sh
     npm start
     ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-
-## DEMO
-
-Demo version of the project [DEMO](https://alissse271.github.io/notes-app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
